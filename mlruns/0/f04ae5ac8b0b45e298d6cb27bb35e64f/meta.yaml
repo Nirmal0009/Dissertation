@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/sidde/OneDrive/Documents/Dissertation/Final/mlruns/0/f04ae5ac8b0b45e298d6cb27bb35e64f/artifacts
+end_time: 1704199964789
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f04ae5ac8b0b45e298d6cb27bb35e64f
+run_name: bald-crow-954
+run_uuid: f04ae5ac8b0b45e298d6cb27bb35e64f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1704199955894
+status: 3
+tags: []
+user_id: sidde

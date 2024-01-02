@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/sidde/OneDrive/Documents/Dissertation/Final/mlruns/0/11ab4a8db61f44c7a754c29be6f2b57c/artifacts
+end_time: 1704199678508
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 11ab4a8db61f44c7a754c29be6f2b57c
+run_name: resilient-roo-101
+run_uuid: 11ab4a8db61f44c7a754c29be6f2b57c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1704199671223
+status: 3
+tags: []
+user_id: sidde

@@ -1,0 +1,16 @@
+artifact_uri: file:///c:/Users/sidde/OneDrive/Documents/Dissertation/Final/mlruns/0/0ce4363ced514900ba98f382db4e5acf/artifacts
+deleted_time: 1703767598581
+end_time: 1703767421760
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 0ce4363ced514900ba98f382db4e5acf
+run_name: wistful-mink-329
+run_uuid: 0ce4363ced514900ba98f382db4e5acf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1703767421666
+status: 4
+tags: []
+user_id: sidde

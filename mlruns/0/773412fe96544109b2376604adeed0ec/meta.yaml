@@ -1,0 +1,16 @@
+artifact_uri: file:///c:/Users/sidde/OneDrive/Documents/Dissertation/Final/mlruns/0/773412fe96544109b2376604adeed0ec/artifacts
+deleted_time: 1703773592338
+end_time: 1703772932178
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 773412fe96544109b2376604adeed0ec
+run_name: skillful-rook-433
+run_uuid: 773412fe96544109b2376604adeed0ec
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1703772925137
+status: 3
+tags: []
+user_id: sidde

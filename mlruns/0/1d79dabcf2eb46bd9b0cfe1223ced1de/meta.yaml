@@ -1,0 +1,16 @@
+artifact_uri: file:///c:/Users/sidde/OneDrive/Documents/Dissertation/Final/mlruns/0/1d79dabcf2eb46bd9b0cfe1223ced1de/artifacts
+deleted_time: 1703772190773
+end_time: 1703769791239
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 1d79dabcf2eb46bd9b0cfe1223ced1de
+run_name: indecisive-worm-354
+run_uuid: 1d79dabcf2eb46bd9b0cfe1223ced1de
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1703769784250
+status: 3
+tags: []
+user_id: sidde
