@@ -40,12 +40,19 @@ df['age_of_vehicle'].fillna(df['age_of_vehicle'].median(), inplace=True)
 
 
 # %% [markdown]
-# #### Cleaning independent variables
 
-# %%
 median_age = df['age_of_driver'].median()
-# Replace ages greater than 100 with the median age
-df['age_of_driver'] = np.where(df['age_of_driver'] > 100, median_age, df['age_of_driver'])
+#Calculate the IQR for 'age_of_driver'
+Q1 = df['age_of_driver'].quantile(0.25)
+Q3 = df['age_of_driver'].quantile(0.75)
+IQR = Q3 - Q1
+# Define the upper and lower bounds to identify outliers
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+# Identify and replace outliers in 'age_of_driver' with the median age
+df['age_of_driver'] = np.where((df['age_of_driver'] < lower_bound) | (df['age_of_driver'] > upper_bound),
+                                median_age, df['age_of_driver'])
+
 
 
 median_income = df['annual_income'].median()
