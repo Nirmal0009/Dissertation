@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/sidde/OneDrive/Documents/Dissertation/Final/mlruns/0/8aa697a99f38480292e6106b03d63334/artifacts
+end_time: 1704350772417
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8aa697a99f38480292e6106b03d63334
+run_name: spiffy-gnu-356
+run_uuid: 8aa697a99f38480292e6106b03d63334
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1704350751917
+status: 3
+tags: []
+user_id: sidde

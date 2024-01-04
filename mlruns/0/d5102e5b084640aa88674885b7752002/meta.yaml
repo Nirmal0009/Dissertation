@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/sidde/OneDrive/Documents/Dissertation/Final/mlruns/0/d5102e5b084640aa88674885b7752002/artifacts
+end_time: 1704352049817
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d5102e5b084640aa88674885b7752002
+run_name: nebulous-hog-883
+run_uuid: d5102e5b084640aa88674885b7752002
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1704352028811
+status: 3
+tags: []
+user_id: sidde

@@ -85,7 +85,7 @@ def process_excel(file_path):
         preprocessed_df = preprocess(df)
 
         # Load the model from the pickle file
-        logged_model = 'runs:/2297385644c347eaad5053a7eb4edbcf/xgboost_model'
+        logged_model = 'runs:/d5102e5b084640aa88674885b7752002/adaboost_model'
         loaded_model = mlflow.pyfunc.load_model(logged_model)
 
         # Predict on the preprocessed DataFrame
