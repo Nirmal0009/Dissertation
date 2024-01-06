@@ -1,10 +1,10 @@
-import tempfile
+
 import streamlit as st
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 import mlflow
-import os
+
 
 
 def preprocess_data(df):
@@ -52,7 +52,6 @@ def preprocess_data(df):
 
     return df
 
-
 def process_excel(file_path):
     try:
         df = pd.read_excel(file_path, engine='openpyxl')
@@ -63,58 +62,112 @@ def process_excel(file_path):
         loaded_model = mlflow.pyfunc.load_model(logged_model)
 
         # Predict on the preprocessed DataFrame
-        df['fraud'] = loaded_model.predict(preprocessed_df).astype(int)
-     
-        # Display the DataFrame
-        st.write("Processed Data:")
-        st.write(df.head())
+        preprocessed_df['Fraud'] = loaded_model.predict(preprocessed_df)
 
-        # Save the result to an Excel file
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as temp_file:
-            processed_file_path = temp_file.name
-            df.to_excel(processed_file_path, index=False)
+        # Add the predicted 'Fraud' column to the original DataFrame
+        df['Predicted_Fraud'] = preprocessed_df['Fraud']
 
-        return processed_file_path
+        return df
 
     except Exception as e:
         st.error(f"Error: {e}")
+        return None
 
 def main():
-    st.set_page_config(page_title="DISSERTATION")
+    st.title("Fraud Detection Web App")
 
-    st.header("FRAUDULENT CLAIMS DETECTION MODEL")
+    # Upload Excel file
+    file = st.file_uploader("Upload Excel File", type=["xlsx", "xls"])
 
-    # File upload and processing logic
-    uploaded_file = st.file_uploader("Choose an Excel file", type=["xlsx", "xls"])
+    if file is not None:
+        # Display file details
+        st.write("File Details:")
+        st.write(f"Name: {file.name}")
+        st.write(f"Type: {file.type}")
+        st.write(f"Size: {file.size} bytes")
 
-    if uploaded_file is not None:
-        st.write("File successfully uploaded!")
-
-        # Display the uploaded file content
-        st.write("Uploaded File Content:")
-        df = pd.read_excel(uploaded_file, engine='openpyxl')
-        st.write(df)
-
-        # Button to trigger the processing
+        # Process and predict fraud
         if st.button("Predict Fraudulent"):
-            temp_file_path = None
-            try:
-                # Save the uploaded file temporarily
-                temp_file_path = process_excel(uploaded_file)
+            # Use file buffer to read the uploaded file with pandas
+            file_buffer = pd.read_excel(file, engine='openpyxl')
+            result_df = process_excel(file_buffer)
 
-                # Display the processed file link
-                if temp_file_path:
-                    st.markdown(f"### [Download Processed File]({temp_file_path})")
+            if result_df is not None:
+                # Display the original DataFrame with the predicted 'Fraud' column
+                st.write("Original DataFrame with Predicted Fraud Column:")
+                st.write(result_df)
 
-            except Exception as e:
-                st.error(f"Error: {e}")
-
-            finally:
-                # Cleanup: Remove the temporary file if it exists
-                if temp_file_path and os.path.exists(temp_file_path):
-                    os.remove(temp_file_path)
-
-    st.text("Note: The processed Excel file will be saved with a temporary name.")
+                # Save the new DataFrame to a new Excel file
+                st.write("Saving Predictions to Excel...")
+                output_file_path = st.text_input("Enter the output file path:", key="output_path")
+                if output_file_path:
+                    result_df.to_excel(output_file_path, index=False)
+                    st.success(f"Predictions added to the file: {output_file_path}")
 
 if __name__ == "__main__":
     main()
+# def process_excel(file_path):
+#     try:
+#         df = pd.read_excel(file_path, engine='openpyxl')
+#         preprocessed_df = preprocess_data(df)
+
+#         # Load the model from the pickle file
+#         logged_model = 'runs:/8aa697a99f38480292e6106b03d63334/adaboost_model'
+#         loaded_model = mlflow.pyfunc.load_model(logged_model)
+
+#         # Predict on the preprocessed DataFrame
+#         df['fraud'] = loaded_model.predict(preprocessed_df).astype(int)
+     
+#         # Display the DataFrame
+#         st.write("Processed Data:")
+#         st.write(df.head())
+
+#         # Save the result to an Excel file
+#         with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as temp_file:
+#             processed_file_path = temp_file.name
+#             df.to_excel(processed_file_path, index=False)
+
+#         return processed_file_path
+
+#     except Exception as e:
+#         st.error(f"Error: {e}")
+
+# def main():
+#     st.set_page_config(page_title="DISSERTATION")
+
+#     st.header("FRAUDULENT CLAIMS DETECTION MODEL")
+
+#     # File upload and processing logic
+#     uploaded_file = st.file_uploader("Choose an Excel file", type=["xlsx", "xls"])
+
+#     if uploaded_file is not None:
+#         st.write("File successfully uploaded!")
+
+#         # Display the uploaded file content
+#         st.write("Uploaded File Content:")
+#         df = pd.read_excel(uploaded_file, engine='openpyxl')
+#         st.write(df)
+
+#         # Button to trigger the processing
+#         if st.button("Predict Fraudulent"):
+#             temp_file_path = None
+#             try:
+#                 # Save the uploaded file temporarily
+#                 temp_file_path = process_excel(uploaded_file)
+
+#                 # Display the processed file link
+#                 if temp_file_path:
+#                     st.markdown(f"### [Download Processed File]({temp_file_path})")
+
+#             except Exception as e:
+#                 st.error(f"Error: {e}")
+
+#             finally:
+#                 # Cleanup: Remove the temporary file if it exists
+#                 if temp_file_path and os.path.exists(temp_file_path):
+#                     os.remove(temp_file_path)
+
+#     st.text("Note: The processed Excel file will be saved with a temporary name.")
+
+# if __name__ == "__main__":
+#     main()
