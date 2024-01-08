@@ -52,20 +52,17 @@ def preprocess_data(df):
 
     return df
 
-def process_excel(file_path):
+def process_excel(file_buffer):
     try:
-        df = pd.read_excel(file_path, engine='openpyxl')
-        preprocessed_df = preprocess_data(df)
+        # Preprocess the DataFrame
+        df = preprocess_data(file_buffer)
 
         # Load the model from the pickle file
         logged_model = 'runs:/8aa697a99f38480292e6106b03d63334/adaboost_model'
         loaded_model = mlflow.pyfunc.load_model(logged_model)
 
         # Predict on the preprocessed DataFrame
-        preprocessed_df['Fraud'] = loaded_model.predict(preprocessed_df)
-
-        # Add the predicted 'Fraud' column to the original DataFrame
-        df['Predicted_Fraud'] = preprocessed_df['Fraud']
+        df['Fraud'] = loaded_model.predict(df)
 
         return df
 
