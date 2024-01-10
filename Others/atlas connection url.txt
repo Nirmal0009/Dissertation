@@ -1,0 +1,1 @@
+mongodb+srv://2021sc04886:<password>@cluster0.b6et2wb.mongodb.net/
