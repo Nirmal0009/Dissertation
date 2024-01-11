@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split, GridSearchCV
-from imblearn.combine import SMOTETomek
 from collections import Counter
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
@@ -14,11 +13,11 @@ from sklearn.metrics import precision_score, recall_score, f1_score, confusion_m
 import mlflow
 import sys
 import mlflow.sklearn
-
+from imblearn.combine import SMOTETomek
 
 
 ### Importing dataset
-file_path = 'C:/Users/sidde/anaconda3/envs/FraudDetection/source/Insurance data.csv'
+file_path = r'C:\Users\sidde\OneDrive\Documents\Dissertation\Final\Data_source\Insurance data.csv'
 df = pd.read_csv(file_path)
 
 
