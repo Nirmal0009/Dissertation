@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    <p>File Size: {{ prediction_result.file_size }} bytes</p>
+    <p>Row Count: {{ prediction_result.row_count }}</p>
+    <p>Model Name: {{ prediction_result.model_name }}</p>
+    <p>Model Description: {{ prediction_result.model_description }}</p>
+    <p>Time Taken: {{ prediction_result.time_taken }}</p>
+    <p>Output File Path: {{ prediction_result.output_file_path }}</p>
+</body>
+</html>

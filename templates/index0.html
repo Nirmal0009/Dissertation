@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fraudulent Claims Detection Model</title>
+    <title>Upload and Process Excel File</title>
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Fraudulent Claims Detection Model</h1>
+    <h1>Upload and Process Excel File</h1>
     <form action="/process_excel" method="post" enctype="multipart/form-data">
         <label for="file_path">Choose Excel File:</label>
         <input type="file" name="file" id="file" accept=".xls, .xlsx" required>
@@ -17,3 +16,4 @@
     </form>
 </body>
 </html>
+
