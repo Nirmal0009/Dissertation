@@ -68,7 +68,7 @@ def run_prediction(file_path):
         preprocessed_df = preprocess(df)
 
         # Load the model from the pickle file
-        logged_model = 'runs:/09432b6ca4dd47658b6358a8e1b3df76/adaboost_model'
+        logged_model = 'runs:/342c996543f846a78b74f556c4ff1a40/adaboost_model'
         loaded_model = mlflow.pyfunc.load_model(logged_model)
 
         # Measure the time taken to run the model
