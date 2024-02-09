@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/sidde/OneDrive/Documents/Dissertation/Final/mlruns/0/ae5df121e8414b7aa76717b5f5ed165d/artifacts
+end_time: 1707496868856
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ae5df121e8414b7aa76717b5f5ed165d
+run_name: capable-shad-610
+run_uuid: ae5df121e8414b7aa76717b5f5ed165d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1707496850362
+status: 3
+tags: []
+user_id: sidde
