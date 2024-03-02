@@ -53,22 +53,31 @@ def preprocess_data(df):
     # Feature Engineering
     df = df.drop(['claim_date', 'zip_code', 'claim_number'], axis=1)
 
-    # Numerical Variables scaling
-    numerical_features = df.select_dtypes(include=['float64', 'int64']).columns
-    scaler = MinMaxScaler()
-    df[numerical_features] = scaler.fit_transform(df[numerical_features])
+# Numerical Variables scaling
+    # numerical_features = df.select_dtypes(include=['float64', 'int64']).columns
+    # scaler = MinMaxScaler()
+    # df[numerical_features] = scaler.fit_transform(df[numerical_features])
 
     # Categorical Variables encoding
     dictionary = {'Monday': 1, 'Tuesday': 2, 'Wednesday': 3, 'Thursday': 4, 'Friday': 5, 'Saturday': 6, 'Sunday': 7}
     df['claim_day_of_week'] = df['claim_day_of_week'].map(dictionary)
 
-    map_vehicle_color = df['vehicle_color'].value_counts().to_dict()
-    df['vehicle_color'] = df['vehicle_color'].map(map_vehicle_color)
 
-    df = pd.get_dummies(df, columns=['accident_site', 'channel', 'vehicle_category'], drop_first=True)
+    dictionary1 = {'black': 1, 'silver': 2, 'white': 3, 'red': 4, 'blue': 5, 'gray': 6, 'other': 7}
+    df['vehicle_color'] = df['vehicle_color'].map(dictionary1)
+
+    dictionary2 = {'Compact': 1, 'Large': 2, 'Medium': 3}
+    df['vehicle_category'] = df['vehicle_category'].map(dictionary2)
+
+    dictionary3 = {'Broker': 1, 'Phone': 2, 'Online': 3}
+    df['channel'] = df['channel'].map(dictionary3)
+
+    dictionary4 = {'Local': 1, 'Parking Lot': 2, 'Highway': 3}
+    df['accident_site'] = df['accident_site'].map(dictionary4)
 
     df['gender'] = df['gender'].map({'M': 1, 'F': 0})
     df['living_status'] = df['living_status'].map({'Rent': 1, 'Own': 0})
+
 
     return df
 
@@ -153,3 +162,4 @@ with mlflow.start_run():
 
     print("\nAdaBoost Confusion Matrix:")
     print(confusion_matrix(y_test, y_pred_ada))
+# %%
