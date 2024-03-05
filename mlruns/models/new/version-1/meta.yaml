@@ -1,0 +1,13 @@
+aliases: []
+creation_timestamp: 1709538995222
+current_stage: None
+description: ''
+last_updated_timestamp: 1709538995222
+name: new
+run_id: 342c996543f846a78b74f556c4ff1a40
+run_link: ''
+source: file:///C:/Users/sidde/OneDrive/Documents/Dissertation/Final/mlruns/0/342c996543f846a78b74f556c4ff1a40/artifacts/adaboost_model
+status: READY
+status_message: null
+user_id: null
+version: 1
