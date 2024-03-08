@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/sidde/OneDrive/Documents/Dissertation/Final/mlruns/0/d5f46ba3bf654d1da39d767aaf3090e3/artifacts
+end_time: 1709724465398
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d5f46ba3bf654d1da39d767aaf3090e3
+run_name: aged-sponge-379
+run_uuid: d5f46ba3bf654d1da39d767aaf3090e3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709724451420
+status: 3
+tags: []
+user_id: sidde

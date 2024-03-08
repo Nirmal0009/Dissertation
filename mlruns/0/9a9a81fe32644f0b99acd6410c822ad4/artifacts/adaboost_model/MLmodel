@@ -1,0 +1,20 @@
+artifact_path: adaboost_model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.9.7
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.4.1.post1
+mlflow_version: 2.11.1
+model_size_bytes: 29470
+model_uuid: 02220e1d58cb44ecb7df9365a35e1de0
+run_id: 9a9a81fe32644f0b99acd6410c822ad4
+utc_time_created: '2024-03-06 11:17:57.714290'

@@ -59,7 +59,7 @@ def run_prediction(df):
         df['living_status'] = df['living_status'].map({'Rent': 1, 'Own': 0})
 
         # Load the model from the pickle file
-        logged_model = 'runs:/3a1b33a59ea14124ae6827c354e3c213/adaboost_model'
+        logged_model = 'runs:/c5f3b97a18cb48ba9bdfebe28c331d52/adaboost_model'
         loaded_model = mlflow.pyfunc.load_model(logged_model)
 
         # Predict on the preprocessed DataFrame
@@ -69,6 +69,8 @@ def run_prediction(df):
 
     except Exception as e:
         return {"error": str(e)}
+
+
 
 st.title("FRAUDULENT CLAIMS DETECTION MODEL")
 
@@ -181,7 +183,7 @@ if st.button("Predict"):
 
     prediction_result = run_prediction(input_df)
     if prediction_result == 0:
-        st.markdown("<p style='font-size:24px; color:green'><b>Prediction:</b> Not a fraud</p>", unsafe_allow_html=True)
+        st.markdown("<p style='font-size:24px; color:green'>Prediction indicates no fraudulent activity detected </p>", unsafe_allow_html=True)
     elif prediction_result == 1:
-        st.markdown("<p style='font-size:24px; color:red'><b>Prediction:</b> Fraud</p>", unsafe_allow_html=True)
+        st.markdown("<p style='font-size:24px; color:red'>Prediction indicates fraudulent activity </p>", unsafe_allow_html=True)
 #new

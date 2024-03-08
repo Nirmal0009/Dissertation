@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/sidde/OneDrive/Documents/Dissertation/Final/mlruns/0/da3d606128d2444facad3ac161c8af87/artifacts
+end_time: 1709723972748
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: da3d606128d2444facad3ac161c8af87
+run_name: hilarious-grub-137
+run_uuid: da3d606128d2444facad3ac161c8af87
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709723959866
+status: 3
+tags: []
+user_id: sidde

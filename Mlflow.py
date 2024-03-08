@@ -116,11 +116,12 @@ print("The number of classes after fit: {}".format(Counter(y_train_resampled)))
 n_estimators = int(sys.argv[1]) if len(sys.argv) > 1 else 50  
 learning_rate = float(sys.argv[2]) if len(sys.argv) > 2 else 1.0  
 
+
 ada_pipeline = Pipeline([
     ('classifier', AdaBoostClassifier(
-        base_estimator=DecisionTreeClassifier(max_depth=1),  # DecisionTreeClassifier is the default base estimator for AdaBoost
         n_estimators=n_estimators,
         learning_rate=learning_rate,
+        algorithm='SAMME',
         random_state=42
     ))
 ])
